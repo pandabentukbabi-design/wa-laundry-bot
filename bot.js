@@ -48,9 +48,11 @@ async function startBot() {
   const { state, saveCreds } = await useMultiFileAuthState("auth");
 
   const sock = makeWASocket({
-    auth: state,
-    printQRInTerminal: true
-  });
+  auth: state,
+  printQRInTerminal: true,
+  logger: P({ level: "silent" }),
+  browser: ["Laundry Bot", "Chrome", "1.0.0"]
+});
 
   sock.ev.on("creds.update", saveCreds);
 
