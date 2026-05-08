@@ -64,7 +64,7 @@ async function startBot() {
 
   // PAIRING CODE
   if (!sock.authState.creds.registered) {
-    const phoneNumber = "62NOMORKAMU";
+    const phoneNumber = "628988248858";
     const code = await sock.requestPairingCode(phoneNumber);
 
     console.log("PAIRING CODE:", code);
