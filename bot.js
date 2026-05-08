@@ -5,7 +5,6 @@ const {
 
 const P = require("pino");
 const { google } = require("googleapis");
-const { google } = require("googleapis");
 
 // ================= GOOGLE AUTH =================
 const auth = new google.auth.GoogleAuth({
