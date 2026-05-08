@@ -47,22 +47,40 @@ async function startBot() {
   const { state, saveCreds } = await useMultiFileAuthState("auth");
 
   const sock = makeWASocket({
-  auth: state,
-  printQRInTerminal: true,
-  logger: P({ level: "silent" }),
-  browser: ["Laundry Bot", "Chrome", "1.0.0"]
-});
+    auth: state,
+    logger: P({ level: "silent" }),
+    browser: ["Laundry Bot", "Chrome", "1.0.0"]
+  });
 
   sock.ev.on("creds.update", saveCreds);
-  sock.ev.on("connection.update", (update) => {
-  console.log(JSON.stringify(update, null, 2));
-});
+
+  sock.ev.on("connection.update", async (update) => {
+    console.log(update);
+
+    if (update.connection === "open") {
+      console.log("✅ Bot Connected");
+    }
+  });
+
+  // PAIRING CODE
+  if (!sock.authState.creds.registered) {
+    const phoneNumber = "62NOMORKAMU";
+    const code = await sock.requestPairingCode(phoneNumber);
+
+    console.log("PAIRING CODE:", code);
+  }
+
   sock.ev.on("messages.upsert", async ({ messages }) => {
     const msg = messages[0];
     if (!msg.message) return;
 
-    const text = msg.message.conversation || msg.message.extendedTextMessage?.text;
+    const text =
+      msg.message.conversation ||
+      msg.message.extendedTextMessage?.text;
+
     if (!text) return;
+
+    // semua command kamu tetap di sini
 
     // ================= INPUT SHIFT =================
     if (text.startsWith("/shift")) {
