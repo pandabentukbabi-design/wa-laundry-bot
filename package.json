@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@whiskeysockets/baileys": "^6.7.0",
-    "googleapis": "^133.0.0"
+    "googleapis": "^133.0.0",
+    "pino": "^8.0.0"
   }
 }
