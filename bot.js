@@ -7,7 +7,7 @@ const auth = new google.auth.GoogleAuth({
   scopes: ["https://www.googleapis.com/auth/spreadsheets"],
 });
 
-const SPREADSHEET_ID = "1wakfSFjiSmBthNm2E9zugbm2RzP_DmUIteogC-XfyCI/edit?usp=drivesdk";
+const SPREADSHEET_ID = "1wakfSFjiSmBthNm2E9zugbm2RzP_DmUIteogC-XfyCI";
 
 // ================= FUNGSI TAMBAH DATA =================
 async function addShift(data) {
