@@ -1,1 +1,13 @@
-
+{
+  "name": "wa-laundry-bot",
+  "version": "1.0.0",
+  "description": "WhatsApp Laundry Bot",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.0",
+    "googleapis": "^133.0.0"
+  }
+}
