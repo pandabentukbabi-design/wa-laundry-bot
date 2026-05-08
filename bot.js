@@ -1,4 +1,10 @@
-const { default: makeWASocket, useMultiFileAuthState } = require("@whiskeysockets/baileys");
+const {
+  default: makeWASocket,
+  useMultiFileAuthState
+} = require("@whiskeysockets/baileys");
+
+const P = require("pino");
+const { google } = require("googleapis");
 const { google } = require("googleapis");
 
 // ================= GOOGLE AUTH =================
