@@ -55,7 +55,9 @@ async function startBot() {
 });
 
   sock.ev.on("creds.update", saveCreds);
-
+  sock.ev.on("connection.update", (update) => {
+  console.log(JSON.stringify(update, null, 2));
+});
   sock.ev.on("messages.upsert", async ({ messages }) => {
     const msg = messages[0];
     if (!msg.message) return;
